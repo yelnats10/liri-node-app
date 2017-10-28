@@ -17,8 +17,7 @@ var fs = require('fs');
 
 var sParams = {
     type: 'track',
-    query: searchSong,
-    // limit: 20
+    query: searchSong
 };
 
 var tParams = {
@@ -49,7 +48,6 @@ function getSpotifyData(err, data) {
     if (err) {
         return console.log('Error occurred: ' + err);
     }
-    // console.log(data.tracks.items[0]);
     console.log("");
     console.log("**********************************");
     console.log("Artists: " + data.tracks.items[0].artists[0].name);
@@ -107,11 +105,19 @@ if (arg === "my-tweets") {
         } else if (command === "spotify-this-song"){
             sParams.query = lookUp;
             spotify.search(sParams, getSpotifyData);
+        } else if (command = "movie-this"){
+            searchMovie = lookUp;
+            queryOMDB = "http://www.omdbapi.com/?t=" + searchMovie + "&apikey=40e9cece";
+            getMovie();
+        } else {
+            console.log("You entered a wrong command");
         }
 
         
         });
 
+} else {
+    console.log("You entered a wrong command");
 }
 
 
