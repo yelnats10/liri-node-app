@@ -48,6 +48,7 @@ function getSpotifyData(err, data) {
     if (err) {
         return console.log('Error occurred: ' + err);
     }
+    console.log(data);
     console.log("");
     console.log("**********************************");
     console.log("Artists: " + data.tracks.items[0].artists[0].name);
